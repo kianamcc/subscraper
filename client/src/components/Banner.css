@@ -1,0 +1,66 @@
+.banner {
+  background-color: #333849;
+  color: white;
+  padding: 80px;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  background-image: url("../assets/stars.gif");
+  height: 95vh;
+}
+
+.banner-container {
+  margin-top: 30px;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  overflow: hidden;
+}
+
+.banner-heading {
+  font-size: 4rem;
+  padding: 0;
+}
+
+.banner-description {
+  color: grey;
+  margin-top: 20px;
+  line-height: 170%;
+}
+
+.column-1 {
+  flex: 1.3;
+}
+
+.column-2 {
+  display: flex;
+  justify-content: center;
+  flex: 0.6;
+}
+
+.banner-img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  object-fit: contain;
+}
+
+.banner-btn {
+  border-radius: 10px;
+  border: 2px solid #590477;
+  width: 100px;
+  height: 40px;
+  margin-top: 50px;
+  background: none;
+  color: white;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.banner-btn:hover {
+  background-color: #400e53;
+}

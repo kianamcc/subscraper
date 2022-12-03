@@ -1,0 +1,38 @@
+.search {
+  display: flex;
+  justify-content: center;
+  margin: 100px 100px 0px 100px;
+  padding: 20px;
+}
+
+.search-bar {
+  border: 1px solid black;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+
+}
+
+.input-box {
+  padding: 10px;
+  text-decoration: none;
+  height: 7vh;
+  width: 50vw;
+  border: 0;
+}
+
+.input-box::placeholder {
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.search-btn-container {
+  padding: 5px;
+}
+
+.search-btn {
+  width: 4vw;
+  height: 4vh;
+  border: 0;
+  cursor: pointer;
+}
