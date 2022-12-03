@@ -2,7 +2,6 @@ const axios = require("axios");
 const express = require("express");
 const cheerio = require("cheerio");
 const jsonfile = require("jsonfile");
-const result = require("./result.json");
 const cors = require("cors");
 const uniqid = require("uniqid");
 
