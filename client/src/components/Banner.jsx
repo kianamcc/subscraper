@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Banner.css";
-import logo from "../assets/logo.png";
 
 const Banner = (props) => {
   return (

@@ -1,18 +1,15 @@
-import logo from "./logo.svg";
 import React, { useEffect, useState, useRef } from "react";
 import "./App.css";
 import Search from "./components/Search";
 import axios from "axios";
 import SubredditDisplay from "./components/SubredditDisplay";
 import Banner from "./components/Banner";
-import Loading from "./components/Loading";
 
 function App() {
   const [data, setData] = useState([]);
   const [userInput, setUserInput] = useState(""); // should be in search component
   const [btnClicked, setBtnClicked] = useState(false);
   const [dataReady, setDataReady] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   // Passed into Search component which will update this value
   const getUserInput = (e) => {
@@ -41,7 +38,6 @@ function App() {
 
   // After user input is sent to backend, retrieve subreddit data from backend
   const getSubredditInfo = async (e) => {
-    setLoading(true);
     setBtnClicked(false);
     try {
       await axios
@@ -63,11 +59,6 @@ function App() {
         );
       }
     }
-  };
-
-  const displayData = () => {
-    console.log("data name", data[0].name);
-    setDataReady(true);
   };
 
   // When user input is sent through a search button click, call the getSubredditInfo function to make a GET request to backend
