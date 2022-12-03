@@ -35,6 +35,15 @@ const SubredditDisplay = (props) => {
             <p className="post-comments">{item.comments}</p>
           </div>
         ));
+      case "controversial":
+        return props.data.controversial_posts.map((item) => (
+          <div className="post" key={item.id}>
+            <h5 className="post-title">{item.title}</h5>
+            <p className="post-upvotes">Upvotes: {item.upvotes}</p>
+            <p className="post-age">{item.timestamp}</p>
+            <p className="post-comments">{item.comments}</p>
+          </div>
+        ));
       default:
         return;
     }
@@ -87,15 +96,17 @@ const SubredditDisplay = (props) => {
         ) : null}
 
         <div className="rising-posts">
-          <h3 className="section-title">Top Hot Posts</h3>
+          <h3 className="section-title">Top Posts</h3>
 
           <p className="section-description">
-            Posts with an overwhelming amount of upvotes
+            Check out the top 25 hot posts, new posts, rising posts, and
+            controversial posts!
           </p>
           <select className="dropdown" onChange={dropDownValueHandler}>
             <option value="hot">Hot Posts</option>
             <option value="new">New Posts</option>
             <option value="rising">Rising Posts</option>
+            <option value="controversial">Controversial Posts</option>
           </select>
           {/* make conditional post display, could be hot, new, or rising */}
           <div className="posts">{dropDown}</div>

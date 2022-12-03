@@ -21,6 +21,7 @@ function App() {
 
   // Passed into Search component and will fire when search button is clicked
   const sendUserInput = async (e) => {
+    e.preventDefault();
     if (userInput !== "") {
       try {
         setBtnClicked(true);
@@ -87,7 +88,6 @@ function App() {
       <Banner handleStartBtnClick={handleStartBtnClick} />
       <div className="main-container" ref={ref}>
         <Search getUserInput={getUserInput} sendUserInput={sendUserInput} />
-        {/* {console.log("data", data)} */}
         {dataReady ? <SubredditDisplay data={data[0]} /> : null}
       </div>
     </div>
