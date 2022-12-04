@@ -22,7 +22,7 @@ function App() {
     if (userInput !== "") {
       try {
         setBtnClicked(true);
-        await axios.post(`${process.env.REACT_SERVER_URL}/post`, {
+        await axios.post(`https://subscraper-api.onrender.com/post`, {
           userInput,
         });
       } catch (err) {
@@ -41,7 +41,7 @@ function App() {
     setBtnClicked(false);
     try {
       await axios
-        .get(`${process.env.REACT_SERVER_URL}/api`, {
+        .get(`https://subscraper-api.onrender.com/api`, {
           headers: {
             Accept: "application/json",
             timeout: 2000,
