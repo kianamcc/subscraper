@@ -22,7 +22,7 @@ function App() {
     if (userInput !== "") {
       try {
         setBtnClicked(true);
-        await axios.post(`${process.env.PORT}/post`, {
+        await axios.post(`http://localhost:${process.env.PORT}/post`, {
           userInput,
         });
       } catch (err) {
@@ -41,7 +41,7 @@ function App() {
     setBtnClicked(false);
     try {
       await axios
-        .get(`${process.env.PORT}/api`, {
+        .get(`http://localhost:${process.env.PORT}/api`, {
           headers: {
             Accept: "application/json",
             timeout: 2000,
