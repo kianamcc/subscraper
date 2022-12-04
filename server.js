@@ -212,6 +212,6 @@ app.get("/api", (req, res) => {
 //   console.log("listening");
 // });
 
-app.listen(`0.0.0.0:${process.env.PORT}` || 5000, () => {
-  console.log(`listening on port: ${process.env.PORT}`);
+app.listen(process.env.PORT || 5000, () => {
+  console.log(`server listening on port: ${process.env.PORT}`);
 });
