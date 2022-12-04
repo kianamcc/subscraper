@@ -22,7 +22,7 @@ function App() {
     if (userInput !== "") {
       try {
         setBtnClicked(true);
-        await axios.post(`https://subscraper.up.railway.app/post`, {
+        await axios.post("/post", {
           userInput,
         });
       } catch (err) {
@@ -41,7 +41,7 @@ function App() {
     setBtnClicked(false);
     try {
       await axios
-        .get(`https://subscraper.up.railway.app/api`, {
+        .get("/api", {
           headers: {
             Accept: "application/json",
             timeout: 2000,
