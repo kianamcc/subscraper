@@ -6,7 +6,11 @@ const cors = require("cors");
 const uniqid = require("uniqid");
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://subscraper.onrender.com/"],
+  })
+);
 app.use(express.json()); // parse content so we can access it in requests
 let recievedUserInput = "";
 
