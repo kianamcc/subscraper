@@ -7,9 +7,6 @@ const uniqid = require("uniqid");
 
 const app = express();
 app.use(cors());
-var corsOptions = {
-  origin: "https://subscraper.onrender.com";
-}
 app.use(express.json()); // parse content so we can access it in requests
 let recievedUserInput = "";
 
@@ -172,7 +169,7 @@ const subredditData = async (sub) => {
   }
 };
 
-app.get("/", cors(corsOptions), (req, res) => {
+app.get("/", (req, res) => {
   console.log("home");
   // axios
   //   .get("https://www.reddit.com")
@@ -183,12 +180,12 @@ app.get("/", cors(corsOptions), (req, res) => {
 });
 
 // retrieve user input from frontend
-app.post("/post", cors(corsOptions), (req, res) => {
+app.post("/post", (req, res) => {
   const body = req.body;
   recievedUserInput = body.userInput;
 });
 
-app.get("/api", cors(corsOptions), (req, res) => {
+app.get("/api", (req, res) => {
   const response = res;
   console.log("In server-side get request");
   subredditData(recievedUserInput)
