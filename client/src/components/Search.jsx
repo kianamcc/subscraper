@@ -15,10 +15,6 @@ const Search = (props) => {
         <div className="search-btn-container">
           <BsSearch className="search-btn" onClick={props.sendUserInput} />
         </div>
-
-        {/* <button className="search-btn" onClick={props.sendUserInput}>
-          Search
-        </button> */}
       </div>
     </div>
   );
