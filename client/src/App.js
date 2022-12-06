@@ -24,7 +24,7 @@ function App() {
       try {
         setBtnClicked(true);
         // `${process.env.REACT_APP_SERVER_URL}post` for render deployment
-        await axios.post(`/post`, {
+        await axios.post(`${process.env.REACT_APP_SERVER_URL}post`, {
           userInput,
         });
       } catch (err) {
@@ -44,7 +44,7 @@ function App() {
     try {
       await axios
         // `${process.env.REACT_APP_SERVER_URL}api` for render deployment
-        .get(`/api`, {
+        .get(`${process.env.REACT_APP_SERVER_URL}api`, {
           headers: {
             Accept: "application/json",
             timeout: 2000,
