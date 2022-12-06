@@ -12,6 +12,7 @@ let recievedUserInput = "";
 
 const baseUrl = "https://old.reddit.com/r/";
 const subredditData = async (sub) => {
+  console.log("Getting data from website...");
   const user_url = baseUrl + sub + "/";
   const user_rising_url = baseUrl + sub + "/rising/";
   const user_new_url = baseUrl + sub + "/new/";

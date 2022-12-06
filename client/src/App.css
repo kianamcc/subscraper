@@ -18,6 +18,10 @@ h1, h2, h2, h4, h5 {
   padding: 150px;
 }
 
+.loading {
+  color: white;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

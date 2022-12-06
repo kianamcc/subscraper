@@ -13,7 +13,17 @@ const Search = (props) => {
           onChange={props.getUserInput}
         />
         <div className="search-btn-container">
-          <BsSearch className="search-btn" onClick={props.sendUserInput} />
+          {props.loading ? (
+            <div
+              className="spinner-border  text-dark"
+              role="status"
+              style={{ width: "40px", height: "40px" }}
+            >
+              <span className="sr-only">Loading...</span>
+            </div>
+          ) : (
+            <BsSearch className="search-btn" onClick={props.sendUserInput} />
+          )}
         </div>
       </div>
     </div>
