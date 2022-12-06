@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "./SubredditDisplay.css";
 
-/* Dummy test */
 const SubredditDisplay = (props) => {
   const [dropDownValue, setDropDownValue] = useState("hot");
 
-  // post display depends on dropdown value -> default hot, new, rising
+  /* post display depends on dropdown value -> default hot, new, rising */
   const dropDownDisplayHandler = () => {
     switch (dropDownValue) {
       case "hot":
@@ -51,8 +50,8 @@ const SubredditDisplay = (props) => {
 
   const dropDown = dropDownDisplayHandler();
 
+  /* Obtain value of dropdown item */
   const dropDownValueHandler = (event) => {
-    console.log(event.target.value);
     setDropDownValue(event.target.value);
   };
 

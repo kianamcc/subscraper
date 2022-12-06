@@ -52,8 +52,10 @@ function App() {
         })
         .then((res) => {
           setData(res.data);
-          setDataReady(true);
-          setLoading(false);
+          if (res.data[0].name) {
+            setDataReady(true);
+            setLoading(false);
+          }
         });
     } catch (err) {
       if (err.response) {
@@ -93,7 +95,7 @@ function App() {
             <span class="sr-only">Loading...</span>
           </div>
         )} */}
-        {dataReady ? <SubredditDisplay data={data[0]} /> : null}
+        {dataReady && <SubredditDisplay data={data[0]} />}
       </div>
     </div>
   );
