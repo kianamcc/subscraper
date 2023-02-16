@@ -7,6 +7,7 @@ const Search = (props) => {
     <div className="search">
       <div className="search-bar" ref={props.ref}>
         <input
+          data-testid="inputbox"
           className="input-box"
           type="text"
           placeholder="Enter subreddit name"
@@ -15,7 +16,7 @@ const Search = (props) => {
         <div className="search-btn-container">
           {props.loading ? (
             <div
-              className="spinner-border  text-dark"
+              className="spinner-border text-dark"
               role="status"
               style={{ width: "40px", height: "40px" }}
             >

@@ -4,7 +4,7 @@ import "./SubredditDisplay.css";
 const SubredditDisplay = (props) => {
   const [dropDownValue, setDropDownValue] = useState("hot");
 
-  /* post display depends on dropdown value -> default hot, new, rising */
+  /* Post display depends on dropdown value -> default hot, new, rising */
   const dropDownDisplayHandler = () => {
     switch (dropDownValue) {
       case "hot":
@@ -101,13 +101,24 @@ const SubredditDisplay = (props) => {
             Check out the top 25 hot posts, new posts, rising posts, and
             controversial posts!
           </p>
-          <select className="dropdown" onChange={dropDownValueHandler}>
-            <option value="hot">Hot Posts</option>
-            <option value="new">New Posts</option>
-            <option value="rising">Rising Posts</option>
-            <option value="controversial">Controversial Posts</option>
+          <select
+            data-testid="dropdown"
+            className="dropdown"
+            onChange={dropDownValueHandler}
+          >
+            <option value="hot" data-testid="dropdown-hot">
+              Hot Posts
+            </option>
+            <option value="new" data-testid="dropdown-new">
+              New Posts
+            </option>
+            <option value="rising" data-testid="dropdown-rising">
+              Rising Posts
+            </option>
+            <option value="controversial" data-testid="dropdown-controversial">
+              Controversial Posts
+            </option>
           </select>
-          {/* make conditional post display, could be hot, new, or rising */}
           <div className="posts">{dropDown}</div>
         </div>
         <div className="discord">
@@ -143,10 +154,10 @@ const SubredditDisplay = (props) => {
 
 export default SubredditDisplay;
 
+// /* Dummy test */
 // import React from "react";
 // import "./SubredditDisplay.css";
 
-// /* Dummy test */
 // const SubredditDisplay = (props) => {
 //   return (
 //     <div className="subreddit">

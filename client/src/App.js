@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./App.css";
-import Search from "./components/Search";
+import Search from "./components/search/Search";
 import axios from "axios";
-import SubredditDisplay from "./components/SubredditDisplay";
-import Banner from "./components/Banner";
+import SubredditDisplay from "./components/subredditdisplay/SubredditDisplay";
+import Banner from "./components/banner/Banner";
 
 function App() {
   const [data, setData] = useState([]);
@@ -11,6 +11,8 @@ function App() {
   const [btnClicked, setBtnClicked] = useState(false);
   const [dataReady, setDataReady] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const ref = useRef(null);
 
   // Passed into Search component which will update this value
   const getUserInput = (e) => {
@@ -43,7 +45,7 @@ function App() {
     setBtnClicked(false);
     try {
       await axios
-        // `${process.env.REACT_APP_SERVER_URL}api` for render deployment
+        // `${process.env.REACT_APP_SERVER_URL}api` for render deployment, otherwise, /api
         .get(`${process.env.REACT_APP_SERVER_URL}api`, {
           headers: {
             Accept: "application/json",
@@ -75,8 +77,6 @@ function App() {
     }
   }, [btnClicked]);
 
-  const ref = useRef(null);
-
   const handleStartBtnClick = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -90,11 +90,6 @@ function App() {
           sendUserInput={sendUserInput}
           loading={loading}
         />
-        {/* {loading && (
-          <div class="spinner-border text-light" role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
-        )} */}
         {dataReady && <SubredditDisplay data={data[0]} />}
       </div>
     </div>

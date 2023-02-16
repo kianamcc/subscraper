@@ -4,7 +4,7 @@
   padding: 80px;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
-  background-image: url("../assets/stars.gif");
+  background-image: url("../../assets/stars.gif");
   height: 95vh;
 }
 

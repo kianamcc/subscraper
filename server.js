@@ -8,9 +8,10 @@ const uniqid = require("uniqid");
 const app = express();
 app.use(cors());
 app.use(express.json()); // parse content so we can access it in requests
-let recievedUserInput = "";
 
+let recievedUserInput = "";
 const baseUrl = "https://old.reddit.com/r/";
+
 const subredditData = async (sub) => {
   console.log("Getting data from website...");
   const user_url = baseUrl + sub + "/";
@@ -172,12 +173,6 @@ const subredditData = async (sub) => {
 
 app.get("/", (req, res) => {
   console.log("home");
-  // axios
-  //   .get("https://www.reddit.com")
-  //   .then((response) => {
-  //     res.json(response);
-  //   })
-  //   .catch((err) => console.log(err));
 });
 
 // retrieve user input from frontend
@@ -186,9 +181,9 @@ app.post("/post", (req, res) => {
   recievedUserInput = body.userInput;
 });
 
+// get subreddit data using recieved user input
 app.get("/api", (req, res) => {
   const response = res;
-  console.log("In server-side get request");
   subredditData(recievedUserInput)
     .then((res) => {
       response.json(res);
@@ -196,23 +191,8 @@ app.get("/api", (req, res) => {
     .catch((err) => {
       console.log(err.message);
     });
-  // getSubredditData(recievedUserInput)
-  //   .then((res) => {
-  //     response.json(res);
-  //   })
-  //   .catch((err) => {
-  //     console.log(
-  //       "Server: In get post. Failed to get data using userInput",
-  //       err
-  //     );
-  //     response.status(403).send(err.message);
-  //   });
 });
 
-// app.listen(5000, () => {
-//   console.log("listening");
-// });
-
 app.listen(process.env.PORT || 5000, () => {
-  console.log(`server listening on port: ${process.env.PORT}`);
+  console.log(`server listening on port: ${process.env.PORT} or 5000`);
 });

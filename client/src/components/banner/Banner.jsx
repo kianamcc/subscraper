@@ -6,8 +6,10 @@ const Banner = (props) => {
     <section className="banner">
       <div className="banner-container">
         <div className="column-1">
-          <h1 className="banner-heading">Subscraper</h1>
-          <p className="banner-description">
+          <h1 data-testid="bannerheading" className="banner-heading">
+            Subscraper
+          </h1>
+          <p data-testid="bannerdescription" className="banner-description">
             Subscraper provides a quick and easy way to view a subreddit's data.
             <br />
             Type in your subreddit of interest and view it's information!
@@ -18,7 +20,11 @@ const Banner = (props) => {
             <br />
             Scroll down or click the button below to start:
           </p>
-          <button className="banner-btn" onClick={props.handleStartBtnClick}>
+          <button
+            data-testid="bannerbtn"
+            className="banner-btn"
+            onClick={props.handleStartBtnClick}
+          >
             Start
           </button>
         </div>
